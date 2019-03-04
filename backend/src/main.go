@@ -21,9 +21,9 @@ type Repos struct {
 }
 
 type RepoMap struct {
-	Name        string
-	Owner       string
-	Description string
+	Name        string `json:"name"`
+	Owner       string `json:"owner"`
+	Description string `json:"deescription"`
 }
 
 type IndexPage struct {
@@ -32,22 +32,30 @@ type IndexPage struct {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
 	var a []Repos
 	repo_map := make(map[string]RepoMap)
 	resp, _ := http.Get(url)
 	bytes, _ := ioutil.ReadAll(resp.Body)
+	//err := json.NewDecoder(resp.Body).Decode(&a)
 	resp.Body.Close()
 
 	err := json.Unmarshal(bytes, &a)
+
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	for _, data := range a {
-		repo_map[fmt.Sprint(data.Id)] = RepoMap{data.Name, data.Owner.Login, data.Description}
+		repo_map[fmt.Sprint(data.Id)] = RepoMap{Name: data.Name, Owner: data.Owner.Login, Description: data.Description}
 
 	}
-	fmt.Fprint(w, repo_map)
+
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Fprint(w, string(bytes))
+}
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
 func main() {

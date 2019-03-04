@@ -9,15 +9,12 @@
 <script>
 import MainLayout from './components/MainLayout'
 
+//import axios from "axios"
+
 export default {
   name: 'App',
   components: {
-    MainLayout
-  },
-  data () {
-    return {
-      //
-    }
+    MainLayout,
   }
 }
 </script>

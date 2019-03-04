@@ -26,8 +26,9 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>TONEKINGIO</v-toolbar-title>
+      <v-toolbar-title>TONE KING</v-toolbar-title>
     </v-toolbar>
+    
     <v-content>
       <v-container fluid fill-height>
         <v-layout
@@ -35,28 +36,36 @@
           align-center
         >
           <v-flex text-xs-center>
-            <!--
-            <v-tooltip left>
-            
-              <v-btn icon large :href="source" target="_blank" slot="activator">
-                <v-icon large>code</v-icon>
-              </v-btn>
-              
-              <span>Source</span>
-            </v-tooltip> -->
-            <v-data-table id="data-table"
+            <v-card-title>
+                My Public Projects
+                <v-spacer></v-spacer>
+                <v-text-field
+                  append-icon="search"
+                  label="Search"
+                  single-line
+                  hide-details
+                  v-model="search"
+                ></v-text-field>
+              </v-card-title>
+            <v-data-table
               :headers="headers"
-              :items="desserts"
+              :items="repos"
+              :search="search"
+              :pagination.sync="pagination"
+              disable-initial-sort
               class="elevation-1"
             >
               <template v-slot:items="props">
-                <td class="text-xs-left">{{ props.item.name }}</td>
-                <td class="text-xs-right">{{ props.item.descr }}</td>
-                <td class="text-xs-right">{{ props.item.lang }}</td>
+                <td class="text-xs-left"> {{ props.item.name }}</td>
+                <td class="text-xs-left">{{ props.item.description }}</td>
+                <td class="text-xs-right">{{ props.item.language }}</td>
                 <td class="text-xs-right">{{ props.item.size }}</td>
-                <td class="text-xs-right">{{ props.item.commit }}</td>
-                <td class="text-xs-right">{{ props.item.star }}</td>
+                <td class="text-xs-right">{{ props.item.created_at }}</td>
+                <td class="text-xs-right">{{ props.item.forks }}</td>
               </template>
+              <v-alert slot="no-results" :value="true" color="error" icon="warning">
+                Your search for "{{ search }}" found no results.
+              </v-alert>
             </v-data-table>
           </v-flex>
         </v-layout>
@@ -69,111 +78,49 @@
 </template>
 
 <script>
+
+  import axios from "axios"
   export default {
-    el: '#app',
-    data: () => ({
-      drawer: null,
-      headers: [
+   
+  
+    data () {
+      return {
+        pagination: {
+          sortBy: 'forks',
+          descending: true,
+          rowsPerPage: 10
+        },
+        drawer: null,
+
+        search: '',
+        sortKey: '',
+        headers: [
         {
-          text: 'Application',
+          text: 'Title',
           align: 'left',
-          sortable: false,
           value: 'name'
         },
         
-        { text: 'Description', value: 'descr' },
-        { text: 'Language', value: 'lang' },
-        { text: 'Size (kb)', value: 'size' },
-        { text: 'Commits', value: 'commit' },
-        { text: 'Stars', value: 'star' }
-      ],
-      desserts: [
-        {
-          name: 'Frozen Yogurt',
-          descr: 159,
-          lang: 6.0,
-          size: 24,
-          commit: 4.0,
-          star: '1%'
-        },
-        {
-          name: 'Ice cream sandwich',
-          descr: 237,
-          lang: 9.0,
-          size: 37,
-          commit: 4.3,
-          star: '1%'
-        },
-        {
-          name: 'Eclair',
-          descr: 262,
-          lang: 16.0,
-          size: 23,
-          commit: 6.0,
-          star: '7%'
-        },
-        {
-          name: 'Cupcake',
-          descr: 305,
-          lang: 3.7,
-          size: 67,
-          commit: 4.3,
-          star: '8%'
-        },
-        {
-          name: 'Gingerbread',
-          descr: 356,
-          lang: 16.0,
-          size: 49,
-          commit: 3.9,
-          star: '16%'
-        },
-        {
-          name: 'Jelly bean',
-          descr: 375,
-          lang: 0.0,
-          size: 94,
-          commit: 0.0,
-          star: '0%'
-        },
-        {
-          name: 'Lollipop',
-          descr: 392,
-          lang: 0.2,
-          size: 98,
-          commit: 0,
-          star: '2%'
-        },
-        {
-          name: 'Honeycomb',
-          descr: 408,
-          lang: 3.2,
-          size: 87,
-          commit: 6.5,
-          star: '45%'
-        },
-        {
-          name: 'Donut',
-          descr: 452,
-          lang: 25.0,
-          size: 51,
-          commit: 4.9,
-          star: '22%'
-        },
-        {
-          name: 'KitKat',
-          descr: 518,
-          lang: 26.0,
-          size: 65,
-          commit: 7,
-          star: '6%'
-        }
-      ]
-    
-    })
+          { text: 'Description', value: 'descr' },
+          { text: 'Language', value: 'lang' },
+          { text: 'Size (kb)', value: 'size' },
+          { text: 'Created', value: 'created' },
+          { text: 'Forks', value: 'forks' }
+        ],
+        repos: [],
+       
+      }
+    },
+    mounted() {
+      var self = this
+      axios.get("http://localhost:8000")
+        .then(function(res){
+          self.repos = res.data
+          
+        })
+
+    }
   }
 </script>
-
 <style>
-
 </style>
