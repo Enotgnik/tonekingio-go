@@ -1,42 +1,104 @@
 <template>
   <v-container>
-    <v-navigation-drawer
-      fixed
-      v-model="drawer"
-      app
-    >
-      <v-list dense>
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon>home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Home</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon>contact_mail</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Contact</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
+    
     <v-toolbar color="blue-grey darken-3" dark fixed app>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon ></v-toolbar-side-icon>
       <v-toolbar-title>Antone King</v-toolbar-title>
     </v-toolbar>
     
     <v-content>
+ 
+      <v-container grid-list-xl style="margin-bottom:-150px;">
+          <h1 style="letter-spacing:10px !important; margin-bottom:25px;" class="headline">MY WORK</h1>
+        <div  class="text-xs-left" style="margin-bottom: 50px;">
+              
+              
+              <p style="width:70%; font-weight:bold;">I spend a lot of time tinkering with electronics and building applications. This site
+                  exists to share ideas and theoris that interest me. I've been working on a number of projects
+                  that I just seem to loose motivation to complete; however, that is helping me pin point the type of
+                  applications I want to build.</p>
+            </div>
+              <v-layout row wrap align-center>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                   
+                    
+                      <div class="headline text-xs-left">Application development</div>
+                  
+                    <v-card-text>
+                      <ul>
+                        <li>
+                            ServiceNow Custom Apps   
+                        </li>
+                         <li>
+                            Data Migraton
+                        </li>
+                        <li>
+                            ITSM Bussiness Automation  
+                        </li>
+                        <li>
+                            Web Applications  
+                        </li>
+                      </ul> 
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    
+                      <div class="headline text-xs-left">Hardware</div>
+                    
+                    <v-card-text>
+                      <ul>
+                        <li>
+                            Water Flow and Pressure reading with arduino    
+                        </li>
+                         <li>
+                            Serving arduino data with rPi
+                        </li>
+                        <li>
+                            Leak detection with Machine Learning  
+                        </li>
+                        <li>
+                            Home Automation
+                        </li>
+                      </ul> 
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    
+                      <div  class="headline">Future Endevors (2019)</div>
+                    
+                    <v-card-text>
+                      <ul >
+                        <li >
+                            Machine Learning/AI    
+                        </li>
+                         <li>
+                            Cloud Computing
+                        </li>
+                         <li>
+                            Blockain
+                        </li>
+                        <li>
+                            FPGA Devices
+                        </li>
+                      </ul> 
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+
+              </v-layout>
+            </v-container>
       <v-container fluid fill-height>
         <v-layout
           justify-center
           align-center
         >
           <v-flex text-xs-center>
-            <v-card-title>
+            <v-card-title class="headline">
                 My Public Projects
                 <v-spacer></v-spacer>
                 <v-text-field
@@ -71,7 +133,9 @@
             </v-data-table>
           </v-flex>
         </v-layout>
+      
       </v-container>
+      
     </v-content>
     <v-footer color="blue-grey darken-3" app inset>
       <span style="margin-left:5px;" class="white--text">&copy; 1776-2019 toneking.io</span>
