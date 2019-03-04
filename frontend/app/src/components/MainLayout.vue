@@ -24,9 +24,9 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar color="indigo" dark fixed app>
+    <v-toolbar color="blue-grey darken-3" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>TONE KING</v-toolbar-title>
+      <v-toolbar-title>Antone King</v-toolbar-title>
     </v-toolbar>
     
     <v-content>
@@ -57,12 +57,13 @@
               class="elevation-1"
             >
               <template v-slot:items="props">
-                <td class="text-xs-left"> {{ props.item.name }}</td>
+                <td class="text-xs-left"> <a target="_blank" v-bind:href="props.item.html_url">{{ props.item.name }}</a></td>
                 <td class="text-xs-left">{{ props.item.description }}</td>
-                <td class="text-xs-right">{{ props.item.language }}</td>
-                <td class="text-xs-right">{{ props.item.size }}</td>
-                <td class="text-xs-right">{{ props.item.created_at }}</td>
-                <td class="text-xs-right">{{ props.item.forks }}</td>
+                <td class="text-xs-left" v-if="props.item.language">{{ props.item.language }}</td>
+                <td class="text-xs-left" v-else>ServiceNow Scoped App</td>
+                <td class="text-xs-left">{{ props.item.size }}</td>
+                <td class="text-xs-left">{{ props.item.created_at }}</td>
+                <td class="text-xs-left">{{ props.item.forks }}</td>
               </template>
               <v-alert slot="no-results" :value="true" color="error" icon="warning">
                 Your search for "{{ search }}" found no results.
@@ -72,7 +73,7 @@
         </v-layout>
       </v-container>
     </v-content>
-    <v-footer color="indigo" app inset>
+    <v-footer color="blue-grey darken-3" app inset>
       <span style="margin-left:5px;" class="white--text">&copy; 1776-2019 toneking.io</span>
     </v-footer>
   </v-container>
@@ -127,4 +128,8 @@
   }
 </script>
 <style>
+a {
+  text-decoration: none;
+  
+}
 </style>
