@@ -114,7 +114,6 @@
               :items="repos"
               :search="search"
               :pagination.sync="pagination"
-              :custom-filter="filterLanguage"
               disable-initial-sort
               class="elevation-1"
             >
@@ -186,9 +185,7 @@
         })
 
     },
-    filterLanguage(){
-      this.repos.language != ''
-    }
+    
   }
 </script>
 <style>

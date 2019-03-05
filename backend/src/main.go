@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 const url string = "https://api.github.com/users/enotgnik/repos"
@@ -33,7 +33,6 @@ type IndexPage struct {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	enableCors(&w)
 	var a []Repos
 	repo_map := make(map[string]RepoMap)
 	resp, _ := http.Get(url)
@@ -55,15 +54,13 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	fmt.Fprint(w, string(bytes))
 }
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-}
 
 func main() {
 
-	r := mux.NewRouter()
+	r := http.NewServeMux()
 	r.HandleFunc("/", indexHandler)
-	err := http.ListenAndServe(":8000", r)
+	handler := cors.Default().Handler(r)
+	err := http.ListenAndServe(":8000", handler)
 	if err != nil {
 		log.Fatal("ListenAndServer: ", err)
 	}
