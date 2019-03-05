@@ -2,13 +2,13 @@
   <v-container>
     
     <v-toolbar color="blue-grey darken-3" dark fixed app>
-      <v-toolbar-side-icon ></v-toolbar-side-icon>
+      <!--<v-toolbar-side-icon ></v-toolbar-side-icon>-->
       <v-toolbar-title>Antone King</v-toolbar-title>
     </v-toolbar>
     
     <v-content>
  
-      <v-container grid-list-xl style="margin-bottom:-150px;">
+      <v-container grid-list-xl style="">
           <h1 style="letter-spacing:10px !important; margin-bottom:25px;" class="headline">MY WORK</h1>
         <div  class="text-xs-left" style="margin-bottom: 50px;">
               
@@ -18,12 +18,13 @@
                   that I just seem to loose motivation to complete; however, that is helping me pin point the type of
                   applications I want to build.</p>
             </div>
-              <v-layout row wrap align-center>
-                <v-flex xs12 md4>
+              <v-layout row wrap >
+                <v-flex xs12 md3>
                   <v-card class="elevation-0 transparent">
                    
                     
-                      <div class="headline text-xs-left">Application development</div>
+                      <div class="headline text-xs-left">Application Development</div>
+                     
                   
                     <v-card-text>
                       <ul>
@@ -43,10 +44,11 @@
                     </v-card-text>
                   </v-card>
                 </v-flex>
-                <v-flex xs12 md4>
+                <v-flex xs12 md3>
                   <v-card class="elevation-0 transparent">
-                    
+                  
                       <div class="headline text-xs-left">Hardware</div>
+                       
                     
                     <v-card-text>
                       <ul>
@@ -66,15 +68,34 @@
                     </v-card-text>
                   </v-card>
                 </v-flex>
-                <v-flex xs12 md4>
+                 <v-flex xs12 md3>
+                   <div  class="headline">Certifications</div>
                   <v-card class="elevation-0 transparent">
-                    
-                      <div  class="headline">Future Endevors (2019)</div>
-                    
                     <v-card-text>
                       <ul >
                         <li >
-                            Machine Learning/AI    
+                            ServiceNow CSA
+                        </li>
+                         <li>
+                            ServiceNow CAD
+                        </li>
+                         <li>
+                            ServiceNow CIS - Event Management (In Progress)
+                        </li>
+                        <li>
+                            AWS Cloud Practionier (In Progress)
+                        </li>
+                      </ul> 
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md3>
+                  <div  class="headline">Future Endevors (2019)</div>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text>
+                      <ul >
+                        <li >
+                            Machine Learning/AI (Open CV)    
                         </li>
                          <li>
                             Cloud Computing
@@ -85,6 +106,9 @@
                         <li>
                             FPGA Devices
                         </li>
+                        <li>
+                            Autonomous Vehicles
+                        </li>
                       </ul> 
                     </v-card-text>
                   </v-card>
@@ -92,7 +116,6 @@
 
               </v-layout>
             </v-container>
-      <v-container fluid fill-height>
         <v-layout
           justify-center
           align-center
@@ -132,9 +155,6 @@
             </v-data-table>
           </v-flex>
         </v-layout>
-      
-      </v-container>
-      
     </v-content>
     <v-footer color="blue-grey darken-3" app inset>
       <span style="margin-left:5px;" class="white--text">&copy; 1776-2019 toneking.io</span>
@@ -193,4 +213,5 @@ a {
   text-decoration: none;
   
 }
+
 </style>

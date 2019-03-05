@@ -9,7 +9,7 @@
             justify-center
             class="white--text"
           >
-            <div style="margin-left:25%">
+            <div style="margin-left:10%">
               <h1 style="letter-spacing:10px !important;" class="white--text mb-1 display-3">ANTONE KING</h1>
               <h2 class=" mb-3">Not your traditional developer. Daily self-learning through research and development.</h2>
             </div>
