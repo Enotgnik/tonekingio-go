@@ -1,0 +1,1 @@
+ginx -g "daemon off;"
