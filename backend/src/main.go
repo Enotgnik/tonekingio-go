@@ -58,7 +58,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 
 	r := http.NewServeMux()
-	r.HandleFunc("/", indexHandler)
+	r.HandleFunc("/api", indexHandler)
 	handler := cors.Default().Handler(r)
 	err := http.ListenAndServe(":8000", handler)
 	if err != nil {
