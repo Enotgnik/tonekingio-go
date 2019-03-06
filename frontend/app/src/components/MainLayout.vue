@@ -35,7 +35,7 @@
                             Data Migraton
                         </li>
                         <li>
-                            ITSM Bussiness Automation  
+                            ITSM Business Automation  
                         </li>
                         <li>
                             Web Applications  
@@ -198,7 +198,7 @@
     },
     mounted() {
       var self = this
-      axios.get("http://localhost:8000/api")
+      axios.get("http://localhost:8080/api")
         .then(function(res){
           self.repos = res.data
           

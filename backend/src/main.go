@@ -60,7 +60,7 @@ func main() {
 	r := http.NewServeMux()
 	r.HandleFunc("/api", indexHandler)
 	handler := cors.Default().Handler(r)
-	err := http.ListenAndServe(":8000", handler)
+	err := http.ListenAndServe(":8080", handler)
 	if err != nil {
 		log.Fatal("ListenAndServer: ", err)
 	}
