@@ -32,13 +32,13 @@
                             ServiceNow Custom Apps   
                         </li>
                          <li>
-                            Data Migraton
+                            Application Interfaces
                         </li>
                         <li>
                             ITSM Business Automation  
                         </li>
                         <li>
-                            Web Applications  
+                            Data Migration  
                         </li>
                       </ul> 
                     </v-card-text>
@@ -198,14 +198,13 @@
     },
     mounted() {
       var self = this
-      axios.get("http://localhost:8080/api")
+      //axios.get("http://localhost:8080/api")
+      axios.get("https://api.github.com/users/enotgnik/repos")
         .then(function(res){
-          self.repos = res.data
-          
+          self.repos = res.data  
         })
         .catch(function(err){
-          console.log(err)
-
+          return err.error
         })
 
     },
