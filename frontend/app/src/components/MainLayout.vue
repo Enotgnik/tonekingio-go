@@ -203,6 +203,10 @@
           self.repos = res.data
           
         })
+        .catch(function(err){
+          console.log(err)
+
+        })
 
     },
     
