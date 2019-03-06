@@ -90,7 +90,7 @@
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md3>
-                  <div  class="headline">Future Endevors (2019)</div>
+                  <div  class="headline">Future Endeavors (2019)</div>
                   <v-card class="elevation-0 transparent">
                     <v-card-text>
                       <ul >
