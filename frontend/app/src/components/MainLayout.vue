@@ -198,7 +198,7 @@
     },
     mounted() {
       var self = this
-      axios.get("http://0.0.0.0:8000")
+      axios.get("http://0.0.0.0:8000/")
         .then(function(res){
           self.repos = res.data
           
