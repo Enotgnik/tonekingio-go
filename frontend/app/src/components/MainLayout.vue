@@ -8,114 +8,7 @@
     
     <v-content>
  
-      <v-container grid-list-xl style="">
-          <h1 style="letter-spacing:10px !important; margin-bottom:25px;" class="headline">MY WORK</h1>
-        <div  class="text-xs-left" style="margin-bottom: 50px;">
-              
-              
-              <p style="width:70%; font-weight:bold;">I spend a lot of time tinkering with electronics and building applications. This site
-                  exists to share ideas and theoris that interest me. I've been working on a number of projects
-                  that I just seem to loose motivation to complete; however, that is helping me pin point the type of
-                  applications I want to build.</p>
-            </div>
-              <v-layout row wrap >
-                <v-flex xs12 md3>
-                  <v-card class="elevation-0 transparent">
-                   
-                    
-                      <div class="headline text-xs-left">Application Development</div>
-                     
-                  
-                    <v-card-text>
-                      <ul>
-                        <li>
-                            ServiceNow Custom Apps   
-                        </li>
-                         <li>
-                            Application Interfaces
-                        </li>
-                        <li>
-                            ITSM Business Automation  
-                        </li>
-                        <li>
-                            Data Migration  
-                        </li>
-                      </ul> 
-                    </v-card-text>
-                  </v-card>
-                </v-flex>
-                <v-flex xs12 md3>
-                  <v-card class="elevation-0 transparent">
-                  
-                      <div class="headline text-xs-left">Hardware</div>
-                       
-                    
-                    <v-card-text>
-                      <ul>
-                        <li>
-                            Water Flow and Pressure reading with arduino    
-                        </li>
-                         <li>
-                            Serving arduino data with rPi
-                        </li>
-                        <li>
-                            Leak detection with Machine Learning  
-                        </li>
-                        <li>
-                            Home Automation
-                        </li>
-                      </ul> 
-                    </v-card-text>
-                  </v-card>
-                </v-flex>
-                 <v-flex xs12 md3>
-                   <div  class="headline">Certifications</div>
-                  <v-card class="elevation-0 transparent">
-                    <v-card-text>
-                      <ul >
-                        <li >
-                            ServiceNow CSA
-                        </li>
-                         <li>
-                            ServiceNow CAD
-                        </li>
-                         <li>
-                            ServiceNow CIS - Event Management (In Progress)
-                        </li>
-                        <li>
-                            AWS Cloud Practionier (In Progress)
-                        </li>
-                      </ul> 
-                    </v-card-text>
-                  </v-card>
-                </v-flex>
-                <v-flex xs12 md3>
-                  <div  class="headline">Future Endeavors (2019)</div>
-                  <v-card class="elevation-0 transparent">
-                    <v-card-text>
-                      <ul >
-                        <li >
-                            Machine Learning/AI (Open CV)    
-                        </li>
-                         <li>
-                            Cloud Computing
-                        </li>
-                         <li>
-                            Blockain
-                        </li>
-                        <li>
-                            FPGA Devices
-                        </li>
-                        <li>
-                            Autonomous Vehicles
-                        </li>
-                      </ul> 
-                    </v-card-text>
-                  </v-card>
-                </v-flex>
-
-              </v-layout>
-            </v-container>
+        <!-- add body here -->
         <v-layout
           justify-center
           align-center
@@ -198,8 +91,7 @@
     },
     mounted() {
       var self = this
-      //axios.get("http://localhost:8080/api")
-      axios.get("https://api.github.com/users/enotgnik/repos")
+      axios.get("http://localhost:8080/api")
         .then(function(res){
           self.repos = res.data  
         })
