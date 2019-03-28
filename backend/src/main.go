@@ -34,10 +34,9 @@ type IndexPage struct {
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	var a []Repos
-	repo_map := make(map[string]RepoMap)
+	repoMap := make(map[string]RepoMap)
 	resp, _ := http.Get(url)
 	bytes, _ := ioutil.ReadAll(resp.Body)
-	//err := json.NewDecoder(resp.Body).Decode(&a)
 	resp.Body.Close()
 
 	err := json.Unmarshal(bytes, &a)
@@ -47,7 +46,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	for _, data := range a {
-		repo_map[fmt.Sprint(data.Id)] = RepoMap{Name: data.Name, Owner: data.Owner.Login, Description: data.Description}
+		repoMap[fmt.Sprint(data.Id)] = RepoMap{Name: data.Name, Owner: data.Owner.Login, Description: data.Description}
 
 	}
 
@@ -56,11 +55,12 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
+	addr := ":8080"
 	r := http.NewServeMux()
 	r.HandleFunc("/api", indexHandler)
+	log.Println("Listening on", addr)
 	handler := cors.Default().Handler(r)
-	err := http.ListenAndServe(":8080", handler)
+	err := http.ListenAndServe(addr, handler)
 	if err != nil {
 		log.Fatal("ListenAndServer: ", err)
 	}
