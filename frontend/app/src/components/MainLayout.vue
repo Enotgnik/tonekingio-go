@@ -96,19 +96,19 @@
                     <v-card-text>
                       <ul >
                         <li >
-                            Machine Learning/AI (Open CV)    
+                            Machine Learning/AI  
                         </li>
                          <li>
-                            Cloud Computing
+                            Big Data
                         </li>
                          <li>
-                            Blockain
+                            Blockchain
                         </li>
                         <li>
                             FPGA Devices
                         </li>
                         <li>
-                            Autonomous Vehicles
+                            Distributed Systems
                         </li>
                       </ul> 
                     </v-card-text>
