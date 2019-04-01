@@ -57,7 +57,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	addr := ":8080"
 	r := http.NewServeMux()
-	r.HandleFunc("/", indexHandler)
+	r.HandleFunc("/api", indexHandler)
 	log.Println("Listening on", addr)
 	handler := cors.Default().Handler(r)
 	err := http.ListenAndServe(addr, handler)
