@@ -81,7 +81,7 @@
                             ServiceNow CAD
                         </li>
                          <li>
-                            ServiceNow CIS - Event Management (In Progress)
+                            ServiceNow CAS - Performance Analytics (In Progress)
                         </li>
                         <li>
                             AWS Cloud Practionier (In Progress)

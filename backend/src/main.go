@@ -60,7 +60,8 @@ func main() {
 	r.HandleFunc("/api", indexHandler)
 	log.Println("Listening on", addr)
 	handler := cors.Default().Handler(r)
-	err := http.ListenAndServe(addr, handler)
+	//err := http.ListenAndServe(addr, handler)
+	err := http.ListenAndServeTLS(addr, "/etc/letsencrypt/live/toneking.io/fullchain.pem", "/etc/letsencrypt/live/toneking.io/privkey.pem", handler)
 	if err != nil {
 		log.Fatal("ListenAndServer: ", err)
 	}
