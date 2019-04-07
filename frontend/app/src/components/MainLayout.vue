@@ -200,7 +200,7 @@
     },
     mounted() {
       var self = this
-      axios.get("https://13.59.209.216:8080/api")
+      axios.get("https://api.github.com/users/enotgnik/repos")
         .then(function(res){
           self.repos = res.data  
         })
