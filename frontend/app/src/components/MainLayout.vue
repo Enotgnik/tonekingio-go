@@ -16,7 +16,7 @@
               
               <p style="width:70%; font-weight:bold;">I spend a lot of time tinkering with electronics and building applications. This site
                   exists to share ideas and theories that interest me. I've been working on a number of projects
-                  that I just seem to loose motivation to complete; however, that is helping me pin point the type of
+                  that I just seem to lose motivation to complete; however, that is helping me pin point the type of
                   applications I want to build.</p>
             </div>
               <v-layout row wrap >
